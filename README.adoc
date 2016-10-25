@@ -15,12 +15,12 @@ image::arch-2.jpg[Architecture]
   
 === Preparing the environment
 
-* Export the variable __$GEODE_HOME__, pointing to your local GemFire / Geode server home.
+* Export the variable `$GEODE_HOME`, pointing to your local GemFire / Geode server home.
 * Edit the file __start-scdf-pcfdev.sh__, in order to satisfy your pcfdev environment info and SCDF binaries path
-* Edit the file __GemFireServer/startup.gfsh__, replacing the IPs with your local address on the pcfdev network (default is 192.168.11.1, for the pcfdev server running on 192.168.11.11). If in doubt, check your pcfdev VM Ip address.
-* Edit the file __TransactionsEmulator/src/main/resources/application.properties__, replacing the __geodeUrl__ variable with the correct Geode IP. 
-* Start pcfdev, if not running yet - __cf dev start__
-* Start Greenplum (or PostgreSQL) with __pg_ctl -D /usr/local/var/postgres start__ command.
+* Edit the file __GemFireServer/startup.gfsh__, replacing the IPs with your local address on the pcfdev network (default is `192.168.11.1`, for the pcfdev server running on `192.168.11.11`). If in doubt, check your pcfdev VM Ip address.
+* Edit the file __TransactionsEmulator/src/main/resources/application.properties__, replacing the `geodeUrl` variable with the correct Geode IP. 
+* Start pcfdev, if not running yet - `cf dev start`
+* Start Greenplum (or PostgreSQL) with `pg_ctl -D /usr/local/var/postgres start` command.
 * Run __scripts/create_and_load_postgresql.sh__ which creates a __mydb__ database, uses the DDL statements in __scripts/model_postgres.sql__ to create the database tables, and then imports the data from tables using the csv files __scripts/pos_device.csv__, __scripts/zip_codes_states.csv__ and __scripts/transaction.csv__. 
 * Start GemFire/Geode using the script __GemFireServer/startup.sh__ 
 * Start the Spring Cloud Dataflow server (or deploy it to pcfdev, if you prefer)
